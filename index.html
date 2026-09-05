@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0f1e" />
+
+  <title>Kartik Singh Ghughtyal | 3rd Year CSE Student · Full Stack · DSA in C++</title>
+  <meta name="description" content="Portfolio of Kartik Singh Ghughtyal — a 3rd year Computer Science Engineering student focused on Full Stack Development, DSA in C++, and AI integration." />
+  <meta name="author" content="Kartik Singh Ghughtyal" />
+  <meta name="keywords" content="Kartik Singh Ghughtyal, Software Engineer, Full Stack, C++, DSA, Python, FastAPI, MERN, AI, Portfolio, CSE Student" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kartik Singh Ghughtyal | Aspiring Software Engineer" />
+  <meta property="og:description" content="3rd year CSE student · Full Stack · DSA in C++ · AI Integration" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>K</text></svg>" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink:    { 900: '#05070f', 800: '#0a0f1e', 700: '#111830', 600: '#1a2340' },
+            accent: { 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-ink-800 text-slate-200 antialiased font-sans overflow-x-hidden">
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] w-0 bg-gradient-to-r from-accent-400 to-accent-600 z-[60]"></div>
+
+  <!-- Custom Cursor (desktop only) -->
+  <div id="cursor-dot" class="pointer-events-none fixed top-0 left-0 w-2 h-2 rounded-full bg-accent-400 z-[70] hidden md:block"></div>
+  <div id="cursor-ring" class="pointer-events-none fixed top-0 left-0 w-8 h-8 rounded-full border border-accent-400/50 z-[70] hidden md:block"></div>
+
+  <!-- Background -->
+  <div class="fixed inset-0 -z-10 bg-ink-800">
+    <div class="absolute inset-0 grid-bg opacity-40"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full bg-accent-500/10 blur-[120px]"></div>
+    <div class="absolute bottom-0 right-0 w-[600px] h-[500px] rounded-full bg-accent-600/5 blur-[120px]"></div>
+    <div id="particles" class="absolute inset-0"></div>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between" aria-label="Main">
+      <a href="#home" class="font-semibold text-white tracking-tight text-lg group">
+        Ghost<span class="text-accent-400 group-hover:text-accent-500 transition">.</span>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-6 text-sm text-slate-400">
+        <li><a class="nav-link" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#journey">Journey</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#dsa">DSA</a></li>
+        <li><a class="nav-link" href="#education">Education</a></li>
+        <li>
+          <a href="#contact" class="ml-2 inline-flex items-center px-3.5 py-1.5 rounded-md bg-accent-500 text-white hover:bg-accent-600 transition">
+            Contact
+          </a>
+        </li>
+      </ul>
+
+      <button id="menu-btn" class="lg:hidden p-2 rounded-md text-slate-300 hover:bg-white/5" aria-label="Toggle menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-ink-800/95 backdrop-blur">
+      <ul class="px-4 py-3 space-y-1 text-sm">
+        <li><a class="mobile-link" href="#home">Home</a></li>
+        <li><a class="mobile-link" href="#about">About</a></li>
+        <li><a class="mobile-link" href="#journey">Journey</a></li>
+        <li><a class="mobile-link" href="#experience">Experience</a></li>
+        <li><a class="mobile-link" href="#skills">Skills</a></li>
+        <li><a class="mobile-link" href="#projects">Projects</a></li>
+        <li><a class="mobile-link" href="#dsa">DSA</a></li>
+        <li><a class="mobile-link" href="#education">Education</a></li>
+        <li><a class="mobile-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 pb-16">
+      <div class="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <!-- Left content -->
+          <div>
+            <div class="reveal inline-flex items-center gap-2 text-xs font-medium tracking-wide uppercase text-accent-400 bg-accent-500/10 border border-accent-500/20 px-3 py-1.5 rounded-full mb-6">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse"></span>
+              3rd Year CSE Student · Software Engineering · AI
+            </div>
+
+            <h1 class="reveal text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+              Building software.<br />
+              Solving problems.<br />
+              <span class="bg-gradient-to-r from-accent-400 to-accent-600 bg-clip-text text-transparent">Learning systems.</span>
+            </h1>
+
+            <p class="reveal mt-6 text-lg text-slate-300 max-w-xl leading-relaxed">
+              I'm <strong class="text-white">Kartik Singh Ghughtyal</strong>, a Computer Science Engineering
+              student focused on Full Stack Development, DSA in C++, and AI-powered applications.
+            </p>
+
+            <div class="reveal mt-4 h-7 text-slate-400 font-mono text-sm">
+              <span class="text-accent-400">&gt;</span>
+              <span id="typed"></span><span class="typed-cursor">|</span>
+            </div>
+
+            <div class="reveal mt-8 flex flex-wrap gap-3">
+              <a href="#projects" class="btn-accent">
+                View Projects
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <a href="#contact" class="btn-outline">Contact Me</a>
+              <a href="assets/resume/Kartik-Singh-Ghughtyal-Resume.pdf" download class="btn-ghost">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/></svg>
+                Resume
+              </a>
+            </div>
+
+            <div class="reveal mt-10 grid grid-cols-3 gap-6 max-w-md">
+              <div>
+                <p class="text-2xl font-bold text-white font-mono">3<span class="text-accent-400">rd</span></p>
+                <p class="text-xs text-slate-400 mt-1">Year CSE</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-white font-mono">C++</p>
+                <p class="text-xs text-slate-400 mt-1">Primary DSA</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold text-white font-mono">MERN</p>
+                <p class="text-xs text-slate-400 mt-1">Full Stack</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: 3D Tech Cube -->
+          <div class="reveal relative flex items-center justify-center h-[420px] lg:h-[520px]" id="hero-3d">
+            <div class="cube-scene">
+              <div class="cube" id="cube">
+                <div class="cube-face cube-front">C++</div>
+                <div class="cube-face cube-back">JavaScript</div>
+                <div class="cube-face cube-right">React</div>
+                <div class="cube-face cube-left">Node.js</div>
+                <div class="cube-face cube-top">Python</div>
+                <div class="cube-face cube-bottom">MySQL</div>
+              </div>
+            </div>
+
+            <!-- Floating labels -->
+            <span class="float-tag" style="--x:-140px;--y:-160px;--d:1">FastAPI</span>
+            <span class="float-tag" style="--x:160px;--y:-120px;--d:2">Git</span>
+            <span class="float-tag" style="--x:-180px;--y:120px;--d:3">MongoDB</span>
+            <span class="float-tag" style="--x:170px;--y:150px;--d:4">AI</span>
+            <span class="float-tag" style="--x:0px;--y:-200px;--d:5">Express</span>
+            <span class="float-tag" style="--x:0px;--y:200px;--d:6">REST</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-500 text-xs flex flex-col items-center gap-2 animate-bounce">
+        <span>Scroll</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">01 — About</p>
+          <h2 class="section-title">About Me</h2>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-8">
+          <div class="md:col-span-3 space-y-4 text-slate-300 leading-relaxed reveal">
+            <p>I'm a <strong class="text-white">third-year Computer Science Engineering student</strong> at Uttaranchal University. My focus is Software Engineering, and I'm working toward becoming a Full Stack Developer with a strong grip on algorithms and system fundamentals.</p>
+            <p>My foundation is <strong class="text-white">Data Structures &amp; Algorithms in C++</strong>. Working through hard problems has shaped how I think about efficiency, edge cases, and engineering trade-offs.</p>
+            <p>Alongside DSA, I'm building as a <strong class="text-white">Full Stack Developer</strong> with the MERN stack, and I'm learning <strong class="text-white">Python and FastAPI</strong> to integrate AI capabilities into real applications.</p>
+            <p>I learn by building. I care about writing code that is readable, maintainable, and built to scale — not just code that runs.</p>
+          </div>
+
+          <aside class="md:col-span-2 reveal">
+            <div class="glass-card p-6">
+              <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-5">Current Focus</h3>
+              <ul class="space-y-3.5 text-sm">
+                <li class="focus-item"><span class="focus-num">01</span> DSA in C++</li>
+                <li class="focus-item"><span class="focus-num">02</span> Full Stack Development</li>
+                <li class="focus-item"><span class="focus-num">03</span> Backend Engineering</li>
+                <li class="focus-item"><span class="focus-num">04</span> AI Integration</li>
+                <li class="focus-item"><span class="focus-num">05</span> Software Engineering</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== JOURNEY ===================== -->
+    <section id="journey" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">02 — Timeline</p>
+          <h2 class="section-title">My Development Journey</h2>
+        </div>
+
+        <div class="journey-wrap">
+          <div class="journey-line"></div>
+          <div class="grid gap-4">
+            <div class="journey-item reveal">
+              <span class="journey-year">2024</span>
+              <div class="journey-content">
+                <h4>Started B.Tech in CSE</h4>
+                <p>Began Computer Science Engineering at Uttaranchal University. First exposure to programming fundamentals.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <span class="journey-year">2025</span>
+              <div class="journey-content">
+                <h4>Started Building Web Applications</h4>
+                <p>Learned HTML, CSS, JavaScript. Started experimenting with frontend and small backend projects.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <span class="journey-year">2026</span>
+              <div class="journey-content">
+                <h4>Full Stack + DSA in C++</h4>
+                <p>Moved deeper into MERN stack, started daily DSA practice in C++, and began exploring AI integration.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <span class="journey-year">2026</span>
+              <div class="journey-content">
+                <h4>Software Engineering with AI Internship</h4>
+                <p>Joined Masai School's SE with AI program — Python, FastAPI, OpenAI APIs, LLMOps.</p>
+              </div>
+            </div>
+            <div class="journey-item reveal">
+              <span class="journey-year">2027</span>
+              <div class="journey-content">
+                <h4>Building Production-Oriented Projects</h4>
+                <p>Currently working on a SaaS Reporting Platform focusing on multi-tenancy, auth &amp; RBAC.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section id="experience" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">03 — Experience</p>
+          <h2 class="section-title">Experience</h2>
+        </div>
+
+        <div class="reveal">
+          <article class="exp-card">
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="text-xl font-semibold text-white">Software Engineering with AI Intern</h3>
+                <p class="text-accent-400 font-medium mt-1">Masai School</p>
+              </div>
+              <div class="text-right">
+                <span class="pill-live">● Ongoing</span>
+                <p class="text-xs text-slate-400 mt-1.5 font-mono">July 2026 — Present</p>
+              </div>
+            </div>
+
+            <p class="text-slate-300 leading-relaxed">
+              Enrolled in a program combining traditional software engineering with modern AI.
+              Currently developing skills in building scalable web applications, secure backend
+              systems, and integrating AI models into real-world products.
+            </p>
+
+            <div class="mt-6">
+              <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Curriculum Coverage</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="chip">Python</span>
+                <span class="chip">FastAPI</span>
+                <span class="chip">REST APIs</span>
+                <span class="chip">Databases</span>
+                <span class="chip">Authentication</span>
+                <span class="chip">Frontend Integration</span>
+                <span class="chip">OpenAI APIs</span>
+                <span class="chip">Prompt Engineering</span>
+                <span class="chip">AI-assisted Dev</span>
+                <span class="chip">LLMOps</span>
+                <span class="chip">Multimodal AI</span>
+                <span class="chip">Testing</span>
+                <span class="chip">Deployment</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">04 — Skills</p>
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-sub">Technologies I use — and technologies I'm actively learning.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" id="skills-grid">
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">Programming</h3>
+            <div class="chips"><span class="chip">C++</span><span class="chip">Python</span><span class="chip">JavaScript</span></div>
+          </div>
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">DSA</h3>
+            <div class="chips"><span class="chip">C++</span><span class="chip">STL</span><span class="chip">Algorithms</span><span class="chip">Problem Solving</span><span class="chip">Complexity Analysis</span></div>
+          </div>
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">Frontend</h3>
+            <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">Tailwind CSS</span></div>
+          </div>
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">Backend</h3>
+            <div class="chips"><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">REST APIs</span><span class="chip">FastAPI</span></div>
+          </div>
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">Databases</h3>
+            <div class="chips"><span class="chip">MySQL</span><span class="chip">MongoDB</span></div>
+          </div>
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">AI</h3>
+            <div class="chips"><span class="chip">OpenAI API</span><span class="chip">Prompt Engineering</span><span class="chip">AI Integration</span><span class="chip">LLM Applications</span></div>
+          </div>
+          <div class="tilt-card reveal lg:col-span-3">
+            <h3 class="skill-heading">Tools</h3>
+            <div class="chips"><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">VS Code</span><span class="chip">Linux</span><span class="chip">Postman</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects" class="section">
+      <div class="section-container">
+        <div class="section-header reveal flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="section-tag">05 — Projects</p>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-sub">Engineering-focused work I'm actively building.</p>
+          </div>
+          <div id="project-filters" class="flex flex-wrap gap-2 text-sm">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+            <button class="filter-btn" data-filter="backend">Backend</button>
+            <button class="filter-btn" data-filter="dsa">DSA</button>
+          </div>
+        </div>
+
+        <div id="projects-grid" class="grid md:grid-cols-2 gap-6">
+
+          <!-- SaaS Reporting Platform -->
+          <article class="tilt-card project-card reveal md:col-span-2" data-category="fullstack backend">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <div>
+                <p class="text-xs font-mono text-accent-400 mb-1">FEATURED · MULTI-TENANT SAAS</p>
+                <h3 class="text-2xl font-semibold text-white">SaaS Reporting Platform</h3>
+              </div>
+              <span class="pill-dev">In Development</span>
+            </div>
+            <p class="text-slate-300 mb-5">
+              A multi-tenant web platform where organizations register, manage business data,
+              build custom reports and dashboards, and control users through role-based permissions.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-5 mb-5">
+              <div>
+                <p class="label-xs">Tech Stack</p>
+                <div class="chips mt-2">
+                  <span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span>
+                  <span class="tech">Node.js</span><span class="tech">Express</span><span class="tech">MySQL</span>
+                  <span class="tech">REST</span><span class="tech">JWT</span><span class="tech">RBAC</span>
+                </div>
+              </div>
+              <div>
+                <p class="label-xs">Key Features</p>
+                <ul class="text-sm text-slate-300 mt-2 space-y-1.5">
+                  <li>• Multi-tenant architecture &amp; tenant isolation</li>
+                  <li>• Authentication + Role-Based Access Control</li>
+                  <li>• Dynamic report builder + dashboards</li>
+                  <li>• Scheduled reports, history &amp; audit logs</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+              <button class="btn-accent" data-project="saas">View Details</button>
+              <a href="[ADD GITHUB URL]" class="btn-outline" target="_blank" rel="noopener">GitHub</a>
+              <a href="[ADD PROJECT DEMO]" class="btn-ghost" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </article>
+
+          <!-- MERN App -->
+          <article class="tilt-card project-card reveal" data-category="fullstack">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <h3 class="text-xl font-semibold text-white">MERN Full Stack App</h3>
+              <span class="pill-dev">Ongoing</span>
+            </div>
+            <p class="text-slate-300 text-sm mb-4">Full-stack app with real authentication flows, REST APIs, and clean DB design.</p>
+            <div class="chips mb-4"><span class="tech">MongoDB</span><span class="tech">Express</span><span class="tech">React</span><span class="tech">Node</span><span class="tech">JWT</span></div>
+            <ul class="text-sm text-slate-300 space-y-1.5 mb-5">
+              <li>• JWT auth + protected routes</li>
+              <li>• RESTful API design</li>
+              <li>• MongoDB schema design</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+              <button class="btn-accent" data-project="mern">View Details</button>
+              <a href="[ADD GITHUB URL]" class="btn-outline" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <!-- DSA Repo -->
+          <article class="tilt-card project-card reveal" data-category="dsa">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <h3 class="text-xl font-semibold text-white">DSA Practice Repository</h3>
+              <span class="pill-dev">Ongoing</span>
+            </div>
+            <p class="text-slate-300 text-sm mb-4">Topic-wise DSA problems solved in C++, organized for interview preparation.</p>
+            <div class="chips mb-4"><span class="tech">C++</span><span class="tech">STL</span><span class="tech">Algorithms</span></div>
+            <ul class="text-sm text-slate-300 space-y-1.5 mb-5">
+              <li>• Multiple approaches (brute → optimal)</li>
+              <li>• Time &amp; space complexity notes</li>
+              <li>• Edge case documentation</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+              <button class="btn-accent" data-project="dsa">View Details</button>
+              <a href="[ADD GITHUB URL]" class="btn-outline" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DSA SECTION ===================== -->
+    <section id="dsa" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">06 — DSA</p>
+          <h2 class="section-title">DSA in <span class="text-accent-400">C++</span></h2>
+          <p class="section-sub">Consistently practicing algorithms — the foundation of my engineering thinking.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6 mb-10">
+          <!-- Live Code Card -->
+          <div class="lg:col-span-2 reveal">
+            <div class="code-card">
+              <div class="code-header">
+                <div class="flex gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
+                </div>
+                <span class="text-xs text-slate-400 font-mono">two_sum.cpp</span>
+                <span class="text-xs text-accent-400 font-mono">C++</span>
+              </div>
+              <pre class="code-body"><code><span class="c-key">#include</span> <span class="c-str">&lt;bits/stdc++.h&gt;</span>
+<span class="c-key">using namespace</span> std;
+
+<span class="c-fn">vector</span>&lt;<span class="c-key">int</span>&gt; twoSum(vector&lt;int&gt;&amp; nums, <span class="c-key">int</span> target) {
+    <span class="c-fn">unordered_map</span>&lt;<span class="c-key">int</span>, <span class="c-key">int</span>&gt; seen;
+    <span class="c-key">for</span> (<span class="c-key">int</span> i = 0; i &lt; nums.size(); i++) {
+        <span class="c-key">int</span> need = target - nums[i];
+        <span class="c-key">if</span> (seen.count(need))
+            <span class="c-key">return</span> {seen[need], i};
+        seen[nums[i]] = i;
+    }
+    <span class="c-key">return</span> {};
+}
+<span class="c-cmt">// Time: O(n)  Space: O(n)</span></code></pre>
+              <div class="code-output">
+                <span class="text-green-400">→</span> Compiled successfully <span class="text-slate-500">·</span> <span class="text-accent-400">Passed all test cases</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Primary language card -->
+          <div class="reveal">
+            <div class="glass-card p-6 h-full flex flex-col">
+              <p class="label-xs">Primary Language</p>
+              <p class="text-4xl font-bold text-white font-mono mt-2">C++</p>
+              <p class="text-sm text-slate-400 mt-3">Standard Template Library, algorithms, and problem solving.</p>
+              <div class="mt-auto pt-5 border-t border-white/10">
+                <p class="label-xs">Approach</p>
+                <p class="text-sm text-slate-300 mt-2">Consistently practicing — focused on <span class="text-white">understanding</span>, not counting.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Topic Map -->
+        <div class="reveal">
+          <p class="label-xs mb-4">Topics I Practice</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" id="dsa-topics">
+            <div class="topic-card" data-info="Contiguous memory access, sliding window, prefix sums.">Arrays</div>
+            <div class="topic-card" data-info="Two pointers, pattern matching, KMP.">Strings</div>
+            <div class="topic-card" data-info="Sorted arrays, monotonic search space. O(log n).">Binary Search</div>
+            <div class="topic-card" data-info="Merge sort, quicksort, counting sort. O(n log n).">Sorting</div>
+            <div class="topic-card" data-info="Singly, doubly, circular. Pointer manipulation.">Linked List</div>
+            <div class="topic-card" data-info="LIFO. Used in expression evaluation, backtracking.">Stack</div>
+            <div class="topic-card" data-info="FIFO. Used in BFS and level-order traversal.">Queue</div>
+            <div class="topic-card" data-info="Base + recursive case. Foundation for DP &amp; backtracking.">Recursion</div>
+            <div class="topic-card" data-info="Binary trees, BST, traversals, tree DP.">Trees</div>
+            <div class="topic-card" data-info="BFS, DFS, shortest paths, MST.">Graphs</div>
+            <div class="topic-card" data-info="Local optimal → global optimal. Requires proof.">Greedy</div>
+            <div class="topic-card" data-info="Overlapping subproblems + optimal substructure.">DP</div>
+            <div class="topic-card" data-info="HashMap, HashSet. O(1) average lookup.">Hashing</div>
+          </div>
+          <p id="topic-info" class="text-sm text-slate-400 mt-4 min-h-[20px] font-mono">Hover a topic to see key concepts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW I SOLVE PROBLEMS ===================== -->
+    <section class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">07 — Method</p>
+          <h2 class="section-title">How I Solve Problems</h2>
+        </div>
+
+        <div class="grid md:grid-cols-5 gap-4">
+          <div class="step-card reveal"><span class="step-num">01</span><h4>Understand</h4><p>Read carefully, restate the problem, identify inputs/outputs and constraints.</p></div>
+          <div class="step-card reveal"><span class="step-num">02</span><h4>Brute Force</h4><p>Write the simplest working solution first. Confirm correctness on examples.</p></div>
+          <div class="step-card reveal"><span class="step-num">03</span><h4>Optimize</h4><p>Identify bottlenecks. Apply the right data structure or algorithm.</p></div>
+          <div class="step-card reveal"><span class="step-num">04</span><h4>Analyze</h4><p>Compute time &amp; space complexity. Justify the trade-offs.</p></div>
+          <div class="step-card reveal"><span class="step-num">05</span><h4>Edge Cases</h4><p>Empty input, duplicates, negatives, overflow, single element.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ARCHITECTURE ===================== -->
+    <section class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">08 — Architecture</p>
+          <h2 class="section-title">SaaS Platform · Architecture</h2>
+          <p class="section-sub">Hover any layer to see its responsibility.</p>
+        </div>
+
+        <div class="reveal glass-card p-6 md:p-10">
+          <div class="arch-flow" id="arch">
+            <div class="arch-node" data-info="User accesses the platform through a browser."><span>👤</span> User</div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-node" data-info="HTML, CSS, JavaScript UI — sends requests to the backend.">Frontend</div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-node" data-info="Express REST API — the boundary of the system.">REST API</div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-row">
+              <div class="arch-node" data-info="JWT auth verifies who the user is.">Auth</div>
+              <div class="arch-node" data-info="RBAC checks what the user is allowed to do.">RBAC</div>
+            </div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-node" data-info="Business logic: report generation, tenant handling, scheduling.">Business Logic</div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-node" data-info="MySQL stores tenants, users, permissions, reports & audit logs.">MySQL</div>
+          </div>
+          <p id="arch-info" class="text-sm text-slate-400 mt-6 font-mono">Hover a layer to see details.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section id="education" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">09 — Education</p>
+          <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="reveal">
+          <article class="exp-card">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <h3 class="text-xl font-semibold text-white">Uttaranchal University</h3>
+                <p class="text-slate-300 mt-1">B.Tech — Computer Software Engineering</p>
+              </div>
+              <div class="text-right">
+                <span class="pill-live">Third Year</span>
+                <p class="text-xs text-slate-400 mt-1.5 font-mono">Aug 2024 — May 2028</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CERTIFICATIONS ===================== -->
+    <section id="certifications" class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">10 — Certifications</p>
+          <h2 class="section-title">Certifications</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div class="tilt-card reveal">
+            <div class="flex items-start gap-4">
+              <div class="cert-icon">C++</div>
+              <div>
+                <h3 class="font-semibold text-white">C++ Basics: Selection and Iteration</h3>
+                <p class="text-xs text-slate-500 mt-1">Credential link unavailable</p>
+              </div>
+            </div>
+          </div>
+          <div class="tilt-card reveal">
+            <div class="flex items-start gap-4">
+              <div class="cert-icon">C++</div>
+              <div>
+                <h3 class="font-semibold text-white">C++ Programming Fundamentals</h3>
+                <p class="text-xs text-slate-500 mt-1">Credential link unavailable</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LEARNING ===================== -->
+    <section class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">11 — Growth</p>
+          <h2 class="section-title">Currently Learning</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">Software Engineering</h3>
+            <ul class="text-sm text-slate-300 space-y-2">
+              <li>• Backend Development</li><li>• API Development</li>
+              <li>• Authentication</li><li>• Testing</li><li>• Deployment</li>
+            </ul>
+          </div>
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">AI Engineering</h3>
+            <ul class="text-sm text-slate-300 space-y-2">
+              <li>• OpenAI APIs</li><li>• Prompt Engineering</li>
+              <li>• LLM Applications</li><li>• Multimodal AI</li>
+            </ul>
+          </div>
+          <div class="tilt-card reveal">
+            <h3 class="skill-heading">DSA</h3>
+            <ul class="text-sm text-slate-300 space-y-2">
+              <li>• C++</li><li>• STL</li>
+              <li>• Algorithms</li><li>• Problem Solving</li><li>• Complexity Analysis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW I BUILD ===================== -->
+    <section class="section">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-tag">12 — Approach</p>
+          <h2 class="section-title">How I Build Software</h2>
+        </div>
+
+        <div class="grid md:grid-cols-4 lg:grid-cols-7 gap-3 reveal">
+          <div class="build-step"><span>1</span>Problem</div>
+          <div class="build-arrow">→</div>
+          <div class="build-step"><span>2</span>Requirements</div>
+          <div class="build-arrow">→</div>
+          <div class="build-step"><span>3</span>Design</div>
+          <div class="build-arrow">→</div>
+          <div class="build-step"><span>4</span>Implement</div>
+        </div>
+        <div class="grid md:grid-cols-4 lg:grid-cols-7 gap-3 mt-3 reveal">
+          <div class="build-step"><span>5</span>Test</div>
+          <div class="build-arrow">→</div>
+          <div class="build-step"><span>6</span>Deploy</div>
+          <div class="build-arrow">→</div>
+          <div class="build-step"><span>7</span>Improve</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section">
+      <div class="section-container">
+        <div class="reveal text-center max-w-3xl mx-auto">
+          <p class="section-tag">13 — Contact</p>
+          <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight">
+            Have an idea, opportunity,<br />or interesting problem?
+          </h2>
+          <p class="mt-5 text-lg text-slate-300">Let's build something useful together.</p>
+
+          <div class="mt-10 grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+            <a href="mailto:ghughtyalkartik12@gmail.com" class="contact-card">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              Email
+            </a>
+            <a href="https://www.linkedin.com/in/kartik-singh-ghughtyal" target="_blank" rel="noopener" class="contact-card">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 17V10H6v7h2.34zM7.17 8.98a1.36 1.36 0 100-2.72 1.36 1.36 0 000 2.72zM18 17v-3.83c0-2.06-1.1-3.02-2.57-3.02-1.19 0-1.72.65-2.02 1.11V10H11.1v7h2.31v-3.9c0-.24.02-.48.09-.65.19-.48.63-.98 1.36-.98.96 0 1.34.73 1.34 1.8V17H18z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/KartikGhughtyal" target="_blank" rel="noopener" class="contact-card">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 015.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              GitHub
+            </a>
+            <a href="assets/resume/Kartik-Singh-Ghughtyal-Resume.pdf" download class="contact-card">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              Resume
+            </a>
+          </div>
+
+          <p class="mt-10 text-sm text-slate-400">Faridabad, Haryana, India · <a href="tel:+918130758049" class="hover:text-white">+91 81307 58049</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-white/10 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between gap-4 items-center">
+      <div>
+        <p class="text-white font-semibold">Kartik Singh Ghughtyal</p>
+        <p class="text-sm text-slate-400 mt-1">Building, learning, and solving one problem at a time.</p>
+      </div>
+      <p class="text-xs text-slate-500 font-mono">© <span id="year"></span> · Built with HTML · Tailwind · Vanilla JS</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-accent-500 text-white shadow-lg opacity-0 pointer-events-none transition hover:bg-accent-600">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <!-- Project Modal -->
+  <div id="modal" class="fixed inset-0 z-[80] hidden">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" data-close></div>
+    <div class="relative max-w-2xl mx-4 md:mx-auto mt-20 bg-ink-700 border border-white/10 rounded-xl shadow-2xl max-h-[80vh] overflow-y-auto">
+      <div class="p-6 md:p-8">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <h3 id="modal-title" class="text-2xl font-bold text-white"></h3>
+          <button data-close class="p-1 rounded hover:bg-white/10 text-slate-300" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <div id="modal-body" class="space-y-4 text-slate-300 text-sm leading-relaxed"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
