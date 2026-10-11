@@ -86,7 +86,7 @@
   if (typed) {
     const words = [
       'Full Stack Developer',
-      'C++ DSA Problem Solver',
+      'Python DSA Problem Solver',
       'AI Enthusiast',
       'Backend Learner',
       'Software Engineering Student'
