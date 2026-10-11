@@ -2,7 +2,6 @@
 
 > A modern, interactive personal portfolio built to showcase my journey as a Computer Science Engineering student, Full Stack Developer, and aspiring AI-focused Software Engineer.
 
-🌐 **Live Portfolio:** [Visit Portfolio](https://portfolio-kappa-ten-wkza9zyhqa.vercel.app/)
 
 ---
 
@@ -58,7 +57,7 @@ Each project focuses on applying technology to solve practical problems rather t
 
 My problem-solving journey with a focus on:
 
-- Python
+- Java
 - Data Structures
 - Algorithms
 - LeetCode
@@ -70,7 +69,7 @@ My problem-solving journey with a focus on:
 The portfolio presents my experience with:
 
 **Languages**
-- C++
+- Java
 - Python
 - JavaScript
 
