@@ -16,7 +16,6 @@ My primary areas of interest include:
 - 🧠 Data Structures & Algorithms
 - 🤖 Artificial Intelligence & Machine Learning
 - 🐍 Python Development
-- ⚡ C++ & Competitive Programming
 - 🌐 Backend & API Development
 - 🗄️ Database Management
 - 🚀 Building real-world software products
@@ -59,7 +58,6 @@ Each project focuses on applying technology to solve practical problems rather t
 
 My problem-solving journey with a focus on:
 
-- C++
 - Python
 - Data Structures
 - Algorithms
@@ -74,7 +72,6 @@ The portfolio presents my experience with:
 **Languages**
 - C++
 - Python
-- Java
 - JavaScript
 
 **Frontend**
